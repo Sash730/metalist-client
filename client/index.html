@@ -1,0 +1,172 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <base href="/">
+  <title>METALIST 1925 | Онлайн продажа билетов</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(client) app/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-datepicker/dist/angular-datepicker.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css({.tmp,client}) app/app.css -->
+  <link rel="stylesheet" href="app/app.css">
+  <!-- injector:css -->
+  <!-- endinjector -->
+  <!-- endbuild -->
+
+</head>
+<body ng-app="metalistTicketsApp">
+<!--[if lt IE 7]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<navbar></navbar>
+<div ui-view=""></div>
+<footer></footer>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-93383351-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<!-- build:js({client,node_modules}) app/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+<script src="bower_components/ngPrint/ngPrint.js"></script>
+<script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+<script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+<script src="bower_components/angular-datepicker/dist/angular-datepicker.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js(.tmp) app/app.js -->
+<script src="app/app.js"></script>
+<!-- injector:js -->
+<script src="app/admin/admin.module.js"></script>
+<script src="components/auth/auth.module.js"></script>
+<script src="components/util/util.module.js"></script>
+<script src="app/404/404.controller.js"></script>
+<script src="app/404/404.js"></script>
+<script src="app/account/account.js"></script>
+<script src="app/account/login/login.controller.js"></script>
+<script src="app/account/logout/logout.controller.js"></script>
+<script src="app/account/recovery/recovery.controller.js"></script>
+<script src="app/account/settings/settings.controller.js"></script>
+<script src="app/account/signup/signup.controller.js"></script>
+<script src="app/admin/admin-users/admin-users.controller.js"></script>
+<script src="app/admin/admin-users/admin-users.js"></script>
+<script src="app/admin/admin.controller.js"></script>
+<script src="app/admin/admin.router.js"></script>
+<script src="app/admin/match-editor/editor/editor.controller.js"></script>
+<script src="app/admin/match-editor/editor/editor.js"></script>
+<script src="app/admin/match-editor/match-editor.controller.js"></script>
+<script src="app/admin/match-editor/match-editor.js"></script>
+<script src="app/admin/match-editor/match-editor.service.js"></script>
+<script src="app/admin/price-schema/price-schema.controller.js"></script>
+<script src="app/admin/price-schema/price-schema.js"></script>
+<script src="app/admin/price-schema/price-schema.service.js"></script>
+<script src="app/admin/season-ticket/block-row-form/block-row-form.controller.js"></script>
+<script src="app/admin/season-ticket/block-row-form/block-row-form.js"></script>
+<script src="app/admin/season-ticket/block-row-list/block-row-list.controller.js"></script>
+<script src="app/admin/season-ticket/block-row-list/block-row-list.js"></script>
+<script src="app/admin/season-ticket/season-ticket-form/season-ticket-form.controller.js"></script>
+<script src="app/admin/season-ticket/season-ticket-form/season-ticket-form.js"></script>
+<script src="app/admin/season-ticket/season-ticket-list/season-ticket-list.controller.js"></script>
+<script src="app/admin/season-ticket/season-ticket-list/season-ticket-list.js"></script>
+<script src="app/admin/season-ticket/season-ticket.controller.js"></script>
+<script src="app/admin/season-ticket/season-ticket.js"></script>
+<script src="app/admin/season-ticket/season-ticket.service.js"></script>
+<script src="app/admin/tickets-statistic/days-summary/days-summary.controller.js"></script>
+<script src="app/admin/tickets-statistic/days-summary/days-summary.js"></script>
+<script src="app/admin/tickets-statistic/events-summary/events-summary.controller.js"></script>
+<script src="app/admin/tickets-statistic/events-summary/events-summary.js"></script>
+<script src="app/admin/tickets-statistic/tickets-statistic.controller.js"></script>
+<script src="app/admin/tickets-statistic/tickets-statistic.js"></script>
+<script src="app/angular-locale_ru-ru.js"></script>
+<script src="app/app.constant.js"></script>
+<script src="app/cart/cart.controller.js"></script>
+<script src="app/services/Cart.js"></script>
+<script src="app/cart/summary/cart-summary.component.js"></script>
+<script src="app/checkout/checkout.controller.js"></script>
+<script src="app/checkout/checkout.js"></script>
+<script src="app/home/home.controller.js"></script>
+<script src="app/home/home.js"></script>
+<script src="app/main/main.js"></script>
+<script src="app/match-details/match-details.controller.js"></script>
+<script src="app/match-details/match-details.component.js"></script>
+<script src="app/match/match.controller.js"></script>
+<script src="app/match/match.js"></script>
+<script src="app/services/Match.js"></script>
+<script src="app/navpanel/navpanel.controller.js"></script>
+<script src="app/navpanel/navpanel.component.js"></script>
+<script src="app/sector/sector.controller.js"></script>
+<script src="app/sector/sector.js"></script>
+<script src="app/sector/sectors/stadium.constant.js"></script>
+<script src="app/stadium/stadium.controller.js"></script>
+<script src="app/stadium/stadium.js"></script>
+<script src="app/tickets/tickets.controller.js"></script>
+<script src="app/tickets/tickets.js"></script>
+<script src="app/services/Ticket.js"></script>
+<script src="components/auth/auth.service.js"></script>
+<script src="components/auth/interceptor.service.js"></script>
+<script src="components/auth/router.decorator.js"></script>
+<script src="components/auth/user.service.js"></script>
+<script src="components/footer/footer.directive.js"></script>
+<script src="components/matches/match.service.js"></script>
+<script src="components/modal/modal.service.js"></script>
+<script src="components/mongoose-error/mongoose-error.directive.js"></script>
+<script src="components/navbar/navbar.controller.js"></script>
+<script src="components/navbar/navbar.directive.js"></script>
+<script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
+<script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
+<script src="components/util/util.service.js"></script>
+<script src="filters/money.filter.js"></script>
+<script src="filters/simpleMoney.filter.js"></script>
+<!-- endinjector -->
+<!-- endbuild -->
+
+<!-- sectorsSeatsStart -->
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.4.0.js"></script>
+<!-- sectorsSeatsEnd -->
+
+</body>
+</html>
