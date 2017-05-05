@@ -24,7 +24,3 @@ export default class RecoveryController {
     }
   }
 }
-
-angular.module('metalistTicketsApp')
-  .controller('RecoveryController', RecoveryController);
-

@@ -1,10 +1,7 @@
-'use strict';
-
-(function () {
-
-  class MatchEditorController {
+export default class MatchEditorController {
 
     constructor(MatchEditorService, PriceSchemaService) {
+      'ngInject';
       this.matchEditorService = MatchEditorService;
       this.priceSchemaService = PriceSchemaService;
 
@@ -74,6 +71,3 @@
 
   }
 
-  angular.module('metalistTicketsApp.admin')
-    .controller('MatchEditorController', MatchEditorController);
-})();

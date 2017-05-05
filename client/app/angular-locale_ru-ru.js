@@ -1,5 +1,5 @@
-'use strict';
-angular.module("ngLocale", [], ["$provide", function($provide) {
+let angularLocaleRuModule = angular.module("ngLocale", [], ["$provide", function($provide) {
+  'ngInject';
   var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "many", OTHER: "other"};
   function getDecimals(n) {
     n = n + '';
@@ -141,3 +141,5 @@ angular.module("ngLocale", [], ["$provide", function($provide) {
     "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (vf.v == 0 && i % 10 == 1 && i % 100 != 11) {    return PLURAL_CATEGORY.ONE;  }  if (vf.v == 0 && i % 10 >= 2 && i % 10 <= 4 && (i % 100 < 12 || i % 100 > 14)) {    return PLURAL_CATEGORY.FEW;  }  if (vf.v == 0 && i % 10 == 0 || vf.v == 0 && i % 10 >= 5 && i % 10 <= 9 || vf.v == 0 && i % 100 >= 11 && i % 100 <= 14) {    return PLURAL_CATEGORY.MANY;  }  return PLURAL_CATEGORY.OTHER;}
   });
 }]);
+
+export default angularLocaleRuModule;

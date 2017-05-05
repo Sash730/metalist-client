@@ -1,4 +1,4 @@
-import template from 'components/navbar/navbar.html';
+import template from './navbar.html';
 
 const navbarDirective = () => ({
         templateUrl: template,

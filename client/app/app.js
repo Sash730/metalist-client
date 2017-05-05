@@ -1,39 +1,34 @@
-import 'jquery';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import angular from 'angular';
-import  * as datePicker  from 'angular-datepicker';
+import datePicker from './../../node_modules/angular-datepicker/index';
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
 import validationMatch from 'angular-validation-match';
 import uiRouter from 'angular-ui-router';
-import uiBootstrap from 'angular-bootstrap';
+import uiBootstrap from 'angular-ui-bootstrap';
 
 import MatchDetailsComponent from './match-details/match-details.component';
 import CartComponent from './cart/cart.component';
 import CartSummaryComponent from './cart/summary/cart-summary.component';
 import NavpanelComponent from './navpanel/navpanel.component';
+import StadiumComponent from './stadium/stadium.component';
 
-import CartService from './services/Cart';
-import MatchService from './services/Match';
-import TicketService from './services/Ticket';
+import CartService from './services/cart.service';
+import MatchService from './services/match.service';
+import TicketsService from './services/ticket.service';
 
 import footerDirective from '../components/footer/footer.directive';
 import mongooseErrorDirective from '../components/mongoose-error/mongoose-error.directive';
 import navbarDirective from '../components/navbar/navbar.directive';
 import oauthButtonsDirective from '../components/oauth-buttons/oauth-buttons.directive';
 
-import accountConfig from './account/account';
-import checkoutConfig from './checkout/checkout';
-import homeConfig from './home/home';
-import notFoundConfig from './404/404';
-import mainConfig from './main/main';
-import matchConfig from './match/match';
-import sectorConfig from './sector/sector';
+import { routerConfig } from './router';
 
 import adminModule from './admin/admin.module';
+import angularLocaleRuModule from './angular-locale_ru-ru';
 import authModule from '../components/auth/auth.module';
 import constantsModule from './app.constant';
+import filtersModule from '../filters/filters';
 
 import CheckoutController from './checkout/checkout.controller';
 import HomeController from './home/home.controller';
@@ -47,13 +42,20 @@ import RecoveryController from './account/recovery/recovery.controller';
 import SectorController from './sector/sector.controller';
 import SettingsController from './account/settings/settings.controller';
 import SignupController from './account/signup/signup.controller';
+import StadiumController from './stadium/stadium.controller';
+import TicketsController from './tickets/tickets.controller';
 
+import '../favicon.ico';
 import './app.less';
-import './bootstraptheme.less';
+import './../../node_modules/angular-datepicker/dist/index.min.css';
+import './../../node_modules/moment-timezone';
+import './../../node_modules/moment/min/moment-with-locales.min.js';
 
 angular.module('metalistTicketsApp', [
   adminModule,
+  angularLocaleRuModule.name,
   authModule,
+  filtersModule,
   constantsModule,
   ngCookies,
   ngResource,
@@ -67,13 +69,14 @@ angular.module('metalistTicketsApp', [
   .component('cart', CartComponent)
   .component('cartSummary', CartSummaryComponent)
   .component('navpanel', NavpanelComponent)
+  .component('stadium', StadiumComponent)
   .directive('footer', footerDirective)
   .directive('mongooseError', mongooseErrorDirective)
   .directive('navbar', navbarDirective)
   .directive('oauthButtons', oauthButtonsDirective)
-  .service('Cart', CartService)
-  .service('Match', MatchService)
-  .service('Ticket', TicketService)
+  .service('CartService', CartService)
+  .service('MatchService', MatchService)
+  .service('TicketsService', TicketsService)
   .controller('HomeController', HomeController)
   .controller('CheckoutController', CheckoutController)
   .controller('LoginController', LoginController)
@@ -86,21 +89,9 @@ angular.module('metalistTicketsApp', [
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)
   .controller('NotFoundController', NotFoundController)
-  .config(function ($urlRouterProvider, $locationProvider, $cookiesProvider) {
-    $urlRouterProvider.otherwise('/404');
-
-    let n = new Date();
-    $cookiesProvider.defaults.expires = new Date(n.getFullYear(), n.getMonth(), n.getDate(), n.getHours() + 6);
-
-    $locationProvider.html5Mode(true);
-  })
-  .config(accountConfig)
-  .config(checkoutConfig)
-  .config(homeConfig)
-  .config(mainConfig)
-  .config(matchConfig)
-  .config(notFoundConfig)
-  .config(sectorConfig)
+  .controller('StadiumController', StadiumController)
+  .controller('TicketsController', TicketsController)
+  .config(routerConfig)
   .run(function ($rootScope, $window) {
     'ngInject';
     $rootScope.$on('$stateChangeStart', function (event, next, nextParams,  prev, prevParams) {

@@ -1,4 +1,4 @@
-import template from 'components/footer/footer.html';
+import template from './footer.html';
 
 const footerDirective =  () => {
   return {

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="text-center"><img src="assets/images/mxtick.png"></div>
+  <div class="text-center"><img src="../../assets/images/mxtick.png"></div>
   <h4 class="page-header">Следующие матчи</h4>
   <div class="row">
     <div class="matches">
@@ -10,7 +10,7 @@
           <a class="link"><div class="bgTicket">
             <div class="buyTicket"><p>Купить билет</p></div>
             <div>
-              <span class="teamLogos"><img src="assets/teamLogo/4.png" alt="..."></span>
+              <span class="teamLogos"><img src="../../assets/teamLogo/4.png" alt="..."></span>
               <span class="teamLogos"><img class="teamLogos" src="{{match.poster}}" alt="..."></span>
             </div>
             <span class="commandsNames"><h4>Металлист 1925 - {{match.rival}}</h4></span>
@@ -19,11 +19,11 @@
           </div>  </a>
         </li>
 
-        <li ng-repeat="match in vm.matches | orderBy:'date':reverse:true " class="panel" ng-if="!match.date" ui-sref="/">
+        <li ng-repeat="match in vm.matches | orderBy:'date':reverse:true " class="panel" ng-if="!match.date">
           <div class="bgTicket">
             <div class="buyTicket">Купить билет</div>
             <div>
-              <span class="teamLogos"><img src="assets/teamLogo/4.png" alt="..."></span>
+              <span class="teamLogos"><img src="../../assets/teamLogo/4.png" alt="..."></span>
               <span class="teamLogos"><img class="teamLogos"  src="{{match.poster}}" alt="..."></span>
             </div>
             <span class="commandsNames"><h4>Металлист 1925 - {{match.rival}}</h4></span>

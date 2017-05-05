@@ -1,17 +1,21 @@
-import angular from 'angular';
-import ngCookies from 'angular-cookies';
-import uiRouter from 'angular-ui-router';
 import utilModule from '../util/util.module';
-import constantsModule from '../../app/app.constant';
+
+import routerDecorator from './router.decorator';
+import AuthService from './auth.service';
+import authInterceptor from './interceptor.service';
+import UserResource from './user.service';
 
 let authModule = angular.module('metalistTicketsApp.auth', [
-  constantsModule,
-  utilModule,
-  ngCookies,
-  uiRouter
+  utilModule
 ])
-    .config(function ($httpProvider) {
-        $httpProvider.interceptors.push('authInterceptor');
-    });
+  .factory('User', UserResource)
+  .factory('Auth', AuthService)
+  .factory('authInterceptor', authInterceptor)
+  .config(function ($httpProvider) {
+    'ngInject';
+    $httpProvider.interceptors.push('authInterceptor');
+  })
+  .run(routerDecorator)
+  .name;
 
 export default authModule;

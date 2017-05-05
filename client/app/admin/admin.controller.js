@@ -1,11 +1,3 @@
-'use strict';
-
-(function () {
-
-  class AdminController {
+export default class AdminController {
     constructor() { }
-  }
-
-  angular.module('metalistTicketsApp.admin')
-    .controller('AdminController', AdminController);
-})();
+}

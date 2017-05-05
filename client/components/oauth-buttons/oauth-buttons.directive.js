@@ -1,10 +1,10 @@
-import template from 'components/oauth-buttons/oauth-buttons.html';
+import template from './oauth-buttons.html';
 
 const oauthButtonsDirective = () => {
         return {
             templateUrl: template,
             restrict: 'EA',
-            controller: 'OauthButtonsCtrl',
+            controller: 'OauthButtonsController',
             controllerAs: 'OauthButtons',
             scope: {
                 classes: '@'

@@ -1,4 +1,4 @@
-import template from 'app/cart/cart.html';
+import template from './cart.html';
 
 class CartController {
 

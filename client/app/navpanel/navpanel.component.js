@@ -1,4 +1,4 @@
-import template from 'app/navpanel/navpanel.html';
+import template from './navpanel.html';
 
 class NavpanelController {
   constructor($stateParams, $state) {

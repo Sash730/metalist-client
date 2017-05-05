@@ -1,4 +1,4 @@
-import template from 'app/match-details/match-details.html';
+import template from './match-details.html';
 
 class MatchDetailsController {
 
