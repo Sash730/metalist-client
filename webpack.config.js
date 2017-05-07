@@ -2,6 +2,7 @@ var path = require( 'path' );
 var webpack = require( 'webpack' );
 var NODE_ENV = process.argv.NODE_ENV || 'development';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context : __dirname + '/client/app',
@@ -75,12 +76,26 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   mangle: true,
+    //   compress: {
+    //     dead_code: true, // eslint-disable-line camelcase
+    //     screw_ie8: true, // eslint-disable-line camelcase
+    //     unused: true,
+    //     warnings: false
+    //   }
+    // }),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './client/index.html'),
       filename: 'index.html',
       mobile: true,
       inject: true
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: path.resolve(__dirname, './client/robots.txt') },
+      { from: path.resolve(__dirname, './client/.htaccess') },
+      { from: path.resolve(__dirname, './client/assets/teamLogo'), to: 'assets/teamLogo' }
+    ])
   ]
 };

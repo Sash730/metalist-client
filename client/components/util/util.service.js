@@ -1,6 +1,3 @@
-// 'use strict';
-//
-// (function () {
 import angular from 'angular';
     /**
      * The Util service is for thin, globally reusable, utility functions
@@ -64,7 +61,3 @@ import angular from 'angular';
 
         return Util;
     }
-
-//     angular.module('metalistTicketsApp.util')
-//         .factory('Util', UtilService);
-// })();
