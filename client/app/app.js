@@ -48,8 +48,6 @@ import TicketsController from './tickets/tickets.controller';
 import '../favicon.ico';
 import './app.less';
 import './../../node_modules/angular-datepicker/dist/index.min.css';
-import './../../node_modules/moment-timezone';
-import './../../node_modules/moment/min/moment-with-locales.min.js';
 
 angular.module('metalistTicketsApp', [
   adminModule,

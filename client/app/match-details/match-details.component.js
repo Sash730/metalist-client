@@ -1,4 +1,5 @@
 import template from './match-details.html';
+import moment from 'moment-timezone';
 
 class MatchDetailsController {
 

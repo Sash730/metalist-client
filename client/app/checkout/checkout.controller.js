@@ -1,3 +1,5 @@
+import moment from 'moment-timezone';
+
 export default class CheckoutController {
 
   constructor($window, CartService, $scope, $interval, Auth) {
