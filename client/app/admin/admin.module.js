@@ -1,9 +1,4 @@
 import AdminController from './admin.controller';
-import EditorController from './match-editor/editor/editor.controller';
-import MatchEditorController from './match-editor/match-editor.controller';
-import PriceSchemaController from './price-schema/price-schema.controller';
-import SeasonTicketController from './season-ticket/season-ticket.controller';
-import TicketsStatisticController from './tickets-statistic/tickets-statistic.controller';
 
 import AdminUsersComponent from './admin-users/admin-users.component';
 import BlockRowListComponent from './season-ticket/block-row-list/block-row-list.component';
@@ -27,11 +22,6 @@ let adminModule = angular.module('metalistTicketsApp.admin', [])
   .service('SeasonTicketService', SeasonTicketService)
   .service('PriceSchemaService', PriceSchemaService)
   .controller('AdminController', AdminController)
-  .controller('EditorController', EditorController)
-  .controller('MatchEditorController', MatchEditorController)
-  .controller('PriceSchemaController', PriceSchemaController)
-  .controller('SeasonTicketController', SeasonTicketController)
-  .controller('TicketsStatisticController', TicketsStatisticController)
   .component('adminUsers', AdminUsersComponent)
   .component('blockRowList', BlockRowListComponent)
   .component('blockRowForm', BlockRowFormComponent)

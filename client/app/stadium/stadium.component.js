@@ -1,10 +1,11 @@
 import template from './stadium.html';
+import StadiumController from './stadium.controller'
 
 
 
 let stadiumComponent = {
   templateUrl: template,
-  controller: 'StadiumController',
+  controller: StadiumController,
   bindings: {
     priceSchema: '<',
     onSectorSelect: '&'

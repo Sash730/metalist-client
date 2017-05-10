@@ -6,8 +6,8 @@ import ngSanitize from 'angular-sanitize';
 import validationMatch from 'angular-validation-match';
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
-//import uiBootstrapPopover from 'angular-ui-bootstrap/src/popover';
-//import bootstrapPopover from 'bootstrap/js/popover';
+
+import './angular-locale_ru-ru';
 
 import MatchDetailsComponent from './match-details/match-details.component';
 import CartComponent from './cart/cart.component';
@@ -19,19 +19,18 @@ import CartService from './services/cart.service';
 import MatchService from './services/match.service';
 import TicketsService from './services/ticket.service';
 
-import footerDirective from '../components/footer/footer.directive';
-import mongooseErrorDirective from '../components/mongoose-error/mongoose-error.directive';
-import navbarDirective from '../components/navbar/navbar.directive';
-import oauthButtonsDirective from '../components/oauth-buttons/oauth-buttons.directive';
+import footerDirective from './footer/footer.directive';
+import mongooseErrorDirective from './mongoose-error/mongoose-error.directive';
+import navbarDirective from './navbar/navbar.directive';
+import oauthButtonsDirective from './oauth-buttons/oauth-buttons.directive';
 
 import { routerConfig } from './router';
-import routerDecorator from './../components/auth/router.decorator';
+import routerDecorator from './auth/router.decorator';
 
 import adminModule from './admin/admin.module';
-import angularLocaleRuModule from './angular-locale_ru-ru';
-import authModule from '../components/auth/auth.module';
+import authModule from './auth/auth.module';
 import constantsModule from './app.constant';
-import filtersModule from '../filters/filters';
+import filtersModule from './filters/filters';
 
 import CheckoutController from './checkout/checkout.controller';
 import HomeController from './home/home.controller';
@@ -39,13 +38,12 @@ import LoginController from './account/login/login.controller';
 import LogoutController from './account/logout/logout.controller';
 import MatchController from './match/match.controller';
 import NotFoundController from './404/404.controller';
-import NavbarController from '../components/navbar/navbar.controller';
-import OauthButtonsController from '../components/oauth-buttons/oauth-buttons.controller';
+import NavbarController from './navbar/navbar.controller';
+import OauthButtonsController from './oauth-buttons/oauth-buttons.controller';
 import RecoveryController from './account/recovery/recovery.controller';
 import SectorController from './sector/sector.controller';
 import SettingsController from './account/settings/settings.controller';
 import SignupController from './account/signup/signup.controller';
-import StadiumController from './stadium/stadium.controller';
 import TicketsController from './tickets/tickets.controller';
 
 import '../favicon.ico';
@@ -54,7 +52,6 @@ import './../../node_modules/angular-datepicker/dist/index.min.css';
 
 angular.module('metalistTicketsApp', [
   adminModule,
-  angularLocaleRuModule.name,
   authModule,
   filtersModule,
   constantsModule,
@@ -90,7 +87,6 @@ angular.module('metalistTicketsApp', [
   .controller('SettingsController', SettingsController)
   .controller('SignupController', SignupController)
   .controller('NotFoundController', NotFoundController)
-  .controller('StadiumController', StadiumController)
   .controller('TicketsController', TicketsController)
   .config(routerConfig)
   .config(function ($httpProvider) {
