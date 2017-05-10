@@ -1,8 +1,8 @@
-import angular from 'angular';
     /**
      * The Util service is for thin, globally reusable, utility functions
      */
-    export default function UtilService($window) {
+    export default function Util($window) {
+        'ngInject';
         var Util = {
             /**
              * Return a callback or noop function

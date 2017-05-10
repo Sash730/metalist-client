@@ -6,6 +6,8 @@ import ngSanitize from 'angular-sanitize';
 import validationMatch from 'angular-validation-match';
 import uiRouter from 'angular-ui-router';
 import uiBootstrap from 'angular-ui-bootstrap';
+//import uiBootstrapPopover from 'angular-ui-bootstrap/src/popover';
+//import bootstrapPopover from 'bootstrap/js/popover';
 
 import MatchDetailsComponent from './match-details/match-details.component';
 import CartComponent from './cart/cart.component';
@@ -23,6 +25,7 @@ import navbarDirective from '../components/navbar/navbar.directive';
 import oauthButtonsDirective from '../components/oauth-buttons/oauth-buttons.directive';
 
 import { routerConfig } from './router';
+import routerDecorator from './../components/auth/router.decorator';
 
 import adminModule from './admin/admin.module';
 import angularLocaleRuModule from './angular-locale_ru-ru';
@@ -90,6 +93,10 @@ angular.module('metalistTicketsApp', [
   .controller('StadiumController', StadiumController)
   .controller('TicketsController', TicketsController)
   .config(routerConfig)
+  .config(function ($httpProvider) {
+    'ngInject';
+    $httpProvider.interceptors.push('authInterceptor');
+  })
   .run(function ($rootScope, $window) {
     'ngInject';
     $rootScope.$on('$stateChangeStart', function (event, next, nextParams,  prev, prevParams) {
@@ -107,4 +114,5 @@ angular.module('metalistTicketsApp', [
         $window.location.href = $window.sessionStorage.href;
       }
     });
-  });
+  })
+  .run(routerDecorator);

@@ -76,15 +76,15 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   mangle: true,
-    //   compress: {
-    //     dead_code: true, // eslint-disable-line camelcase
-    //     screw_ie8: true, // eslint-disable-line camelcase
-    //     unused: true,
-    //     warnings: false
-    //   }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: {
+        dead_code: true, // eslint-disable-line camelcase
+        screw_ie8: true, // eslint-disable-line camelcase
+        unused: true,
+        warnings: false
+      }
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './client/index.html'),
